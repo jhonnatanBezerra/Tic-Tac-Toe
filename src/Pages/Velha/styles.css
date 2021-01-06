@@ -1,0 +1,98 @@
+:root{
+  --O-color: #2196f3;
+  --X-color: #f44336;
+  --E-color: #777;
+  --button-color: #4caf50;
+}
+
+body{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  font-family: sans-serif;
+  height: 90vh;
+  background-color: #eee;
+}
+
+
+.title{
+  text-align: center;
+  font-size: 2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.board{
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(3, 150px);
+  gap: 1rem;
+}
+
+.board.game-over{
+  opacity: 0.5;
+}
+
+.cell{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  background-color: white;
+  border-radius: 5px;
+  font-size: 3rem;
+  font-weight: bold;
+
+  color: #00000066;
+  cursor: pointer;
+}
+
+.cell.X{
+ background-color: var(--X-color);
+}
+
+.cell.O {
+  background-color: var(--O-color);
+ }
+
+ /* quando a classe .cell.O ou as outras tiver um desses atribitos o cursor fica diferente, mostrando que nao pode mais ser clicado */
+ .cell.O, .cell.X, .game-over .cell{ /* toda vez que um .cell estiver dentro de um .game-over*/
+   cursor: not-allowed;
+   
+ }
+/* quando a classe nao tiver X ou O definidos fazer um efeito de hover neles */
+ .cell:not(.O):not(.X):hover{
+   box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.4);
+ }
+
+ footer{
+   text-align: center;
+ }
+
+ .winner-message{
+  color: #555;
+   margin: 2rem;
+ }
+
+ .winner-message span.O{
+  color: var(--O-color);
+ }
+
+ .winner-message span.X{
+  color: var(--X-color);
+ }
+
+ .winner-message span.E{
+  color: var(--E-color);
+ }
+
+ button{
+   padding: 0.8rem 1.5rem;
+   border: none;
+   border-radius: 5px;
+   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.6);
+   background-color: var(--button-color) ;
+   color: white;
+   font-size: 1.2rem;
+ }
